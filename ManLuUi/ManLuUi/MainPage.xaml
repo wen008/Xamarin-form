@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ManLuUi"
+             xmlns:my="clr-namespace:ManLuUi.Control"
+             
+             x:Class="ManLuUi.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="my:RectangleButton" x:Key="my1" >
+                <Style.Triggers>
+                    <Trigger TargetType="my:RectangleButton" Property="Ispressed" Value="True">
+                        <Setter Property="Background" Value="DimGray"/>
+                        <Setter Property="TextColor" Value="WhiteSmoke"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+
+            <Style TargetType="my:CheckButton" x:Key="my2" >
+                <Style.Triggers>
+                    <Trigger TargetType="my:CheckButton" Property="IsChecked" Value="True">
+                        <Setter Property="Background" Value="DimGray"/>
+                        <Setter Property="TextColor" Value="WhiteSmoke"/>
+                        <Setter Property="Text" Value="停止动画"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <my:RectangleButton WidthRequest="160" Style="{DynamicResource my1}" EnableTouchEvents="True" HeightRequest="40" Text="我是文本按钮"
+                            HorizontalOptions="Center" VerticalOptions="Center" Clicked="Fuck"></my:RectangleButton>
+        </Grid>
+        <Grid Grid.Row="1">
+            
+            <my:CheckButton WidthRequest="100" Style="{DynamicResource my2}" EnableTouchEvents="True" HeightRequest="40" IsChecked="False" Text="开始等待" CheckChanged="CheckButton_CheckChanged"
+                            HorizontalOptions="Center" VerticalOptions="Center">
+            </my:CheckButton>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            
+            <my:ProgressRing x:Name="ring"  WidthRequest="200" HeightRequest="200"
+                            
+                            HorizontalOptions="Center" VerticalOptions="Center">
+            </my:ProgressRing>
+        </Grid>
+
+
+
+    </Grid>
+
+</ContentPage>
